@@ -544,7 +544,7 @@ if __name__ == '__main__':
     
     if CONFIG['temp_path'] == '':
         if args.local_rank in [-1]:
-            os.makedirs('/mytest/diyi/temp', exist_ok=True)
+            #os.makedirs('/mytest/diyi/temp', exist_ok=True)
             temp_path = tempfile.mkdtemp(dir='/test/diyi/temp')
         else:
             temp_path = '/test/diyi/temp'
