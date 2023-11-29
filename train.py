@@ -544,12 +544,8 @@ if __name__ == '__main__':
     
     if CONFIG['temp_path'] == '':
         if args.local_rank in [-1]:
-            try:
-                original_umask= os.umask(0)
-                os.makedirs('/test/diyi/temp', exist_ok=True, mode=0o777)
-                temp_path = tempfile.mkdtemp(dir='/test/diyi/temp')
-            finally:
-                 os.umask(original_umask)
+            os.makedirs('/test/diyi/temp', exist_ok=True)
+            temp_path = tempfile.mkdtemp(dir='/test/diyi/temp')
         else:
             temp_path = '/test/diyi/temp'
         CONFIG['temp_path'] = temp_path
